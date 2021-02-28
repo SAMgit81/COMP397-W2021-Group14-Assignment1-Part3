@@ -14,6 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
+    public HealthBarScreenSpaceController updatedBehaviour;
 
     Vector3 velocity;
     // Update is called once per frame
