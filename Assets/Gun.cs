@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.LogError(hit.transform.name);
+            Debug.Log(hit.transform.name);
 
 
             EnemyBehaviour target = hit.transform.GetComponent<EnemyBehaviour>();
