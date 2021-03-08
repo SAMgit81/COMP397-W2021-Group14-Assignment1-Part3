@@ -14,7 +14,13 @@ public class PlayerBehaviour : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
-    public HealthBarScreenSpaceController updatedBehaviour;
+
+    [Header("HealthBar")]
+    public HealthBarScreenSpaceController healthBar;
+
+    [Header("Player Abilities")]
+    [Range(0, 100)]
+    public int health;
 
     Vector3 velocity;
     // Update is called once per frame
@@ -42,6 +48,7 @@ public class PlayerBehaviour : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
 
 
 
