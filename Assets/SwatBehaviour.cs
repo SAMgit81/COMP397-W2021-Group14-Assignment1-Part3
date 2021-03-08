@@ -6,7 +6,8 @@ public enum SwatState
 {
     IDLE,
     RUN,
-    ROUNDKICK
+    ROUNDKICK,
+    UPPERCUTJAB
 }
 
 public class SwatBehaviour : MonoBehaviour
@@ -55,19 +56,21 @@ public class SwatBehaviour : MonoBehaviour
                 stopDealDamage = true;
                 StartCoroutine(DoKickDamage());
             }
-        }
-       /* else if(HasLOS && Vector3.Distance(transform.position, player.transform.position) < distance)
-        {
-            // could be an attack
-            animator.SetInteger("AnimeState", (int)SwatState.ROUNDKICK);
-            transform.LookAt(transform.position - player.transform.forward);
 
-            if (stopDealDamage == false)
+            if (agent.remainingDistance < 2.5f)
             {
-                stopDealDamage = true;
-                StartCoroutine(DoKickDamage());
+                // could be an attack
+                animator.SetInteger("AnimeState", (int)SwatState.UPPERCUTJAB);
+                transform.LookAt(transform.position - player.transform.forward);
+
+                if (stopDealDamage == false)
+                {
+                    stopDealDamage = true;
+                    StartCoroutine(DoKickDamage());
+                }
             }
-        }*/
+        }
+       
         else if (HasLOS)
         {
             animator.SetInteger("AnimeState", (int)SwatState.RUN);
