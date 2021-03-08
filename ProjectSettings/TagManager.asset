@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fire
   - Spikes
+  - Ground
+  - FxTemporaire
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - Crypto
   - EnemyMarker
   - Spikes
-  - 
+  - SwatMarker
   - 
   - 
   - 
