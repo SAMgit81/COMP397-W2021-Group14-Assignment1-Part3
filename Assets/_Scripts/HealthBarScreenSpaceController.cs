@@ -19,7 +19,7 @@ public class HealthBarScreenSpaceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      //  healthBarSlider = GetComponent<Slider>();
+      //healthBarSlider = GetComponent<Slider>();
         currentHealth = MaxHealth;
     }
 
@@ -41,7 +41,7 @@ public class HealthBarScreenSpaceController : MonoBehaviour
         }
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         healthBarSlider.value -= damage;
         currentHealth -= damage;

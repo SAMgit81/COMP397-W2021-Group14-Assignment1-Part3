@@ -33,7 +33,7 @@ public class Gun : MonoBehaviour
             Debug.Log(hit.transform.name);
 
 
-            EnemyBehaviour target = hit.transform.GetComponent<EnemyBehaviour>();
+            SwatBehaviour target = hit.transform.GetComponent<SwatBehaviour>();
             if(target != null)
             {
                 target.TakeDamage(damage);

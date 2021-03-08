@@ -1,0 +1,4 @@
+C:/Users/Samuel[[:space:]]Gurara/Documents/GamePro3/COMP397-W2021-Group14-Assignment1-Part3 filter=lfs diff=lfs merge=lfs -text
+'*.fbx' filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.prefab filter=lfs diff=lfs merge=lfs -text

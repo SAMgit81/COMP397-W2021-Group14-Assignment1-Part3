@@ -60,5 +60,6 @@ public enum KeyAction
 	right,
 	forward,
 	backward,
-	jump
+	jump,
+	pause
 }
