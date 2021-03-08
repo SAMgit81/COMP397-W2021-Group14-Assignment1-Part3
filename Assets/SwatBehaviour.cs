@@ -20,6 +20,8 @@ public class SwatBehaviour : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
 
+    public float health = 60f;
+
     [Header("Attack")]
     public float distance;
     public PlayerBehaviour playerBehaviour;
@@ -88,6 +90,19 @@ public class SwatBehaviour : MonoBehaviour
             HasLOS = true;
             player = other.transform.gameObject;
         }
+    }
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0f)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
     IEnumerator DoKickDamage()
     {
