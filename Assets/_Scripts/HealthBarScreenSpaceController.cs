@@ -39,6 +39,11 @@ public class HealthBarScreenSpaceController : MonoBehaviour
         {
             Reset();
         }
+
+        if(currentHealth == 0)
+        {
+            FindObjectOfType<GamaManage>().EndGame();
+        }
     }
 
     public void TakeDamage(int damage)
