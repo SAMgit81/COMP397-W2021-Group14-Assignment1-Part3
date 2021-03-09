@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,58 +8,87 @@ public enum CryptoState
 {
     IDLE,
     RUN,
-    JUMP
+    JUMP,
+    KICK
 }
+
 
 public class CryptoBehaviour : MonoBehaviour
 {
-    [Header("Line Of Sight")]
-    public bool HasLos;
-    /*public Vector3 playerLocation;*/
+    [Header("Line of Sight")] 
+    public bool HasLOS;
 
     public GameObject player;
 
     private NavMeshAgent agent;
     private Animator animator;
+
+    [Header("Attack")]
+    public float distance;
+    public PlayerBehaviour playerBehaviour;
+
+    public int delay = 30;
+    public bool stopDealDamage;
+
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        playerBehaviour = FindObjectOfType<PlayerBehaviour>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (HasLos)
+        if (HasLOS)
         {
             agent.SetDestination(player.transform.position);
-            
+        }
 
-            if (HasLos && Vector3.Distance(transform.position, player.transform.position) < 2.5)
-            {
-                //attack
-                animator.SetInteger("AnimeState", (int)CryptoState.IDLE);
-                transform.LookAt(transform.position - player.transform.forward);
 
-                if (agent.isOnOffMeshLink)
+        if(HasLOS && Vector3.Distance(transform.position, player.transform.position) < distance)
+        {
+                // could be an attack
+            animator.SetInteger("AnimState", (int)CryptoState.KICK);
+            transform.LookAt(transform.position - player.transform.forward);
+       
+                if (stopDealDamage == false)
                 {
-                    animator.SetInteger("AnimeState", (int)CryptoState.RUN);
+                    stopDealDamage = true;
+                    StartCoroutine(DoKickDamage());
                 }
-            }
-            else
+                    
+
+            if (agent.isOnOffMeshLink)
             {
-                animator.SetInteger("AnimeState", (int)CryptoState.RUN);
+                animator.SetInteger("AnimState", (int)CryptoState.JUMP);
             }
         }
+        else if (HasLOS)
+        {
+            animator.SetInteger("AnimState", (int)CryptoState.RUN);
+        }
+        else
+        {
+            animator.SetInteger("AnimState", (int)CryptoState.IDLE);
+        }
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            HasLos = true;
+            HasLOS = true;
             player = other.transform.gameObject;
         }
     }
+     IEnumerator DoKickDamage()
+    {
+        yield return new WaitForSeconds(1);
+       // heal.TakeDamage(5);
+        stopDealDamage = false;
+    }
+
 }
 
