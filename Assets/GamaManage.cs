@@ -22,7 +22,9 @@ public class GamaManage : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("GAME OVER");
-            Invoke("Restart", restartDelay);
+            completeLevelUI.SetActive(true);
+            //Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -30,5 +32,8 @@ public class GamaManage : MonoBehaviour
     void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Cursor.lockState = CursorLockMode.Locked;
+
+
     }
 }
