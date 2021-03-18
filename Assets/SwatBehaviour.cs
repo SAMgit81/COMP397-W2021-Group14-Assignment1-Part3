@@ -20,7 +20,7 @@ public class SwatBehaviour : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
 
-    public float health = 60f;
+    public float health = 70f;
 
     [Header("Attack")]
     public float distance;
