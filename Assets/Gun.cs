@@ -27,7 +27,11 @@ public class Gun : MonoBehaviour
 
     public void OnFireButtonClicked()
     {
-        Shoot();
+        if (Time.time >= nextTimeToFire)
+        {
+            nextTimeToFire = Time.time + 1f / fireRate;
+            Shoot();
+        }
     }
 
     void Shoot()

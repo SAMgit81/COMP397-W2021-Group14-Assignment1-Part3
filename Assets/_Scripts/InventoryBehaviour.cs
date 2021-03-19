@@ -36,4 +36,18 @@ public class InventoryBehaviour : MonoBehaviour
         inventoryUI.SetActive(true);
         InventoryPresent = true;
     }
+
+    public void OnInventoryButtonPressed()
+    {
+        if (InventoryPresent == true)
+        {
+
+            Close();
+
+        }
+        else
+        {
+            Open();
+        }
+    }
 }
