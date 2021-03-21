@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Pauseable : MonoBehaviour
@@ -40,5 +41,15 @@ public class Pauseable : MonoBehaviour
         {
             agent.enabled = !isGamePaused;
         }
+    }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    public void ExitButton()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
