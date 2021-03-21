@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: SMT Gaming
-  productName: COMP397-W2021-RoboEscape-P1P3-Android
+  productName: COMP397-W2021-RoboEscape-A2P1-Android
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -146,7 +146,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: ca.SMTGaming.COMP397W2021RoboEscapeP1P3Android
+    Android: ca.SMTGaming.COMP397W2021RoboEscapeA2P1Android
   buildNumber:
     Standalone: 0
     iPhone: 0
