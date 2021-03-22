@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public AudioSource onClickSound;
@@ -17,7 +16,6 @@ public class PauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
-
             }
             else
             {
@@ -34,6 +32,13 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
     void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
+
+    public void OnMenuButtonPressed()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
